@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import FormData from './FormData';
 
 class App extends Component {
 
@@ -45,6 +46,7 @@ class App extends Component {
 
         return (
             <div className="App">
+                <FormData/>
                 <h1>Load Data from API</h1>
                 {list}
             </div>
