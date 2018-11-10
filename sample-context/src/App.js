@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TodoList from './TodoList';
+import FormInput from './FormInput';
 
 class App extends Component {
     render() {
@@ -11,6 +12,7 @@ class App extends Component {
             <div className="App">
                 <h1>Todo</h1>
                 <TodoList data={todos}/>
+                <FormInput/>
             </div>
         );
     }
