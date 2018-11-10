@@ -1,40 +1,21 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {loadUsers} from "../actions/UserAction";
 import UserList from './../components/user/UserList'
+
 class User extends Component {
-
-    state = {data: null, error: null};
-
     componentDidMount() {
-        fetch(`https://jsonplaceholder.typicode.com/users`)
-            .then(response => {
-                if (response.ok) {
-                    return response;
-                }
-                throw Error(response.status);
-            })
-            .then(result => result.json())
-            .then(result => this.setState({data: result}))
-            .catch(error => this.setState({error: error.message}))
+        this.props.dispatch(loadUsers())
     }
 
     render() {
-
-        const {data, error} = this.state;
+        const {users} = this.props;
         let list = <div>Loading...</div>;
-
-        if (data) {
-            if (data.length > 0) {
-                list = <UserList data={data}/>
-            } else {
-                list = <div>No Data</div>
-            }
+        if (users && users.length > 0) {
+            list = <UserList data={users}/>
         }
-
-        if (error) {
-            list = <div>Error happening: {error}</div>
-        }
-
         return (
+
             <div className="App">
                 <h1>User List:</h1>
                 {list}
@@ -44,4 +25,12 @@ class User extends Component {
 
 }
 
-export default User;
+
+// Retrieve state in the store as a props component.
+function mapStateToProps(state) {
+    return {users: state.users}
+}
+
+
+
+export default connect(mapStateToProps)(User);

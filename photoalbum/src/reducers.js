@@ -12,12 +12,11 @@ function countAge(state = 0, action) {
     }
 }
 
-function ABC(state = 0, action) {
+function users(state = {}, action) {
     switch (action.type) {
-        case 'UP_AGE':
-            return state + 1;
-        case 'DOWN_AGE':
-            return state - 1;
+        case 'LOAD_USERS':
+            return action.payload;
+
         default:
             return state;
     }
@@ -25,7 +24,7 @@ function ABC(state = 0, action) {
 
 const reducers = combineReducers({
     counter: countAge,
-    abc:ABC
+    users
 });
 
 export default reducers;
