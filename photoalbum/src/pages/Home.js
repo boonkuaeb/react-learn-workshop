@@ -17,12 +17,12 @@ class Home extends Component {
 //    aAll state will reset when refreshing the browser
 //********************************************************************
 
-// Mapping Home component stage to Redux store as an props name age.
+// Retrieve state in the store as a props component.
 function mapStateToProps(state) {
-    return {age: state}
+    return {age: state.counter}
 }
 
-// Define function to call a store command
+// To define a command for a reducer
 function mapDispatchToProps(dispatch) {
     return {
         downAge: () => {
