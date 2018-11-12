@@ -13,10 +13,6 @@ const store = createStore(
     reducers,
     applyMiddleware(thunk)
 );
-// store.subscribe(() => console.log(store.getState()));
-// store.dispatch({
-//     type: ''
-// });
 
 ReactDOM.render(
     <Provider store={store}>

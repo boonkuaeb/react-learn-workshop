@@ -11,26 +11,30 @@ class User extends Component {
     render() {
         const {users} = this.props;
         let list = <div>Loading...</div>;
-        if (users && users.length > 0) {
-            list = <UserList data={users}/>
+        if (!users.isFailed && users.data) {
+            if (users.data.length > 0) {
+                list = <UserList data={users.data}/>
+            }
         }
+
+        if (users.isFailed) {
+            list = <h4>Error: {users.data}</h4>
+        }
+
         return (
 
             <div className="App">
                 <h1>User List:</h1>
                 {list}
             </div>
-        );
+        ) ;
     }
 
 }
-
 
 // Retrieve state in the store as a props component.
 function mapStateToProps(state) {
     return {users: state.users}
 }
-
-
 
 export default connect(mapStateToProps)(User);
