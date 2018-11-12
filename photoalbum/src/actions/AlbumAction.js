@@ -1,6 +1,7 @@
-export const loadUsers = () => {
+
+export const loadAblums = (userId) => {
     return (dispatch) => {
-        fetch(`https://jsonplaceholder.typicode.com/users`)
+        fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
             .then(response => {
                 if (response.ok) {
                     return response;
@@ -10,16 +11,14 @@ export const loadUsers = () => {
             .then(result => result.json())
             .then(result => {
                 dispatch({
-                    type: 'LOAD_USERS',
+                    type: 'LOAD_ALBUMS',
                     payload: result
                 })
             })
             .catch(e => dispatch({
-                type: 'LOAD_USERS_FAIL',
+                type: 'LOAD_ALBUMS_FAIL',
                 payload: e.message
             }))
-
-
-
     }
 };
+

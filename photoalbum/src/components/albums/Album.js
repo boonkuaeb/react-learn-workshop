@@ -6,7 +6,7 @@ class User extends Component {
         const data = this.props.data;
         return (
             <div>
-                <Link to={`/user/${data.id}/album?username=${data.username}`}>{data.name} | {data.email}</Link>
+                <Link to={`/ablums/detail/${data.id}`}>{data.title}</Link>
             </div>
         );
     }
