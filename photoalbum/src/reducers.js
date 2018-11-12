@@ -12,9 +12,9 @@ function countAge(state = 0, action) {
     }
 }
 
-const initailUsersState = {isFailed: false, data: null, isLoading: false};
+const initialUsersState = {isFailed: false, data: null, isLoading: false};
 
-function users(state = initailUsersState, action) {
+function users(state = initialUsersState, action) {
     switch (action.type) {
         case 'LOAD_USERS_PENDING':
             return {...state, isFailed: false, data: null, isLoading: true};
@@ -28,9 +28,9 @@ function users(state = initailUsersState, action) {
 }
 
 
-const initailAblumState = {isFailed: false, data: null, isLoading: false};
+const initialAlbumsState = {isFailed: false, data: null, isLoading: false};
 
-function albums(state = initailAblumState, action) {
+function albums(state = initialAlbumsState, action) {
     switch (action.type) {
         case 'LOAD_ALBUMS_PENDING':
             return {...state, isFailed: false, data: null, isLoading: true};
@@ -43,10 +43,26 @@ function albums(state = initailAblumState, action) {
     }
 }
 
+const initialPhotosState = {isFailed: false, data: null, isLoading: false};
+
+function photos(state = initialPhotosState, action) {
+    switch (action.type) {
+        case 'LOAD_PHOTOS_PENDING':
+            return {...state, isFailed: false, data: null, isLoading: true};
+        case 'LOAD_PHOTOS':
+            return {...state, isFailed: false, data: action.payload, isLoading: false};
+        case 'LOAD_PHOTOS_FAIL':
+            return {...state, isFailed: true, data: action.payload, isLoading: false};
+        default:
+            return state;
+    }
+}
+
 const reducers = combineReducers({
     counter: countAge,
     users,
-    albums
+    albums,
+    photos
 });
 
 export default reducers;
