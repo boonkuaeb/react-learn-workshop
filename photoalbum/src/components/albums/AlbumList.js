@@ -7,9 +7,9 @@ class AlbumList extends Component {
         const data = this.props.data;
         return (
             <div className="App-UserList">
-                {data && data.map(album=>{
+                {data && data.map(album => {
                     return (
-                        <Album key={album.id} data={album} />
+                        <Album key={album.id} data={album}/>
                     )
                 })}
             </div>

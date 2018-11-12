@@ -7,9 +7,9 @@ class UserList extends Component {
         const data = this.props.data;
         return (
             <div className="App-UserList">
-                {data && data.map(user=>{
+                {data && data.map(user => {
                     return (
-                        <User key={user.id} data={user} />
+                        <User key={user.id} data={user}/>
                     )
                 })}
             </div>

@@ -12,9 +12,12 @@ function countAge(state = 0, action) {
     }
 }
 
-const initailUsersState = { isFailed : false, data:null };
+const initailUsersState = {isFailed: false, data: null, isLoading: false};
+
 function users(state = initailUsersState, action) {
     switch (action.type) {
+        case 'LOAD_USERS_PENDING':
+            return {...state, isFailed: false, data: null, isLoading: true};
         case 'LOAD_USERS':
             return {...state, isFailed: false, data: action.payload};
         case 'LOAD_USERS_FAIL':
@@ -25,19 +28,20 @@ function users(state = initailUsersState, action) {
 }
 
 
+const initailAblumState = {isFailed: false, data: null, isLoading: false};
 
-const initailAblumState = { isFailed : false, data:null };
 function albums(state = initailAblumState, action) {
     switch (action.type) {
+        case 'LOAD_ALBUMS_PENDING':
+            return {...state, isFailed: false, data: null, isLoading: true};
         case 'LOAD_ALBUMS':
-            return {...state, isFailed: false, data: action.payload};
+            return {...state, isFailed: false, data: action.payload, isLoading: false};
         case 'LOAD_ALBUMS_FAIL':
-            return {...state, isFailed: true, data: action.payload};
+            return {...state, isFailed: true, data: action.payload, isLoading: false};
         default:
             return state;
     }
 }
-
 
 const reducers = combineReducers({
     counter: countAge,

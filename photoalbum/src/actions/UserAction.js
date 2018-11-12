@@ -1,5 +1,10 @@
 export const loadUsers = () => {
     return (dispatch) => {
+
+        dispatch({
+            type: 'LOAD_USERS_PENDING'
+        });
+
         fetch(`https://jsonplaceholder.typicode.com/users`)
             .then(response => {
                 if (response.ok) {
@@ -18,7 +23,6 @@ export const loadUsers = () => {
                 type: 'LOAD_USERS_FAIL',
                 payload: e.message
             }))
-
 
 
     }

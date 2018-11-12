@@ -27,7 +27,7 @@ class User extends Component {
                 <h1>User List:</h1>
                 {list}
             </div>
-        ) ;
+        );
     }
 
 }
