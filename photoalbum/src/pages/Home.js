@@ -7,8 +7,8 @@ class Home extends Component {
         return (
             <div className="App-Home">
                 <h1>Your age is {this.props.age} years</h1>
-                <button onClick={this.props.upAge}>+ Age</button>
-                <button onClick={this.props.downAge}>- Age</button>
+                <button className="btn btn-primary" onClick={this.props.upAge}>+ Age</button>
+                <button className="btn btn-danger" onClick={this.props.downAge}>- Age</button>
             </div>
         );
     }
