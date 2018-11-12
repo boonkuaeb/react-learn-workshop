@@ -1,7 +1,18 @@
 import React, {Component} from 'react';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import {Link, withRouter} from 'react-router-dom';
 
 class Header extends Component {
+
+    state = {
+        isOpen: true
+    };
+
+    toggleNavbar=()=> {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    };
 
     handleSignOut = (e) => {
         e.preventDefault();
@@ -12,11 +23,11 @@ class Header extends Component {
     renderLink = () => {
         if (localStorage.getItem('access-token')) {
             return (
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/user">Photo</Link></li>
-                    <li>
-                        <a href="/sign-out" onClick={this.handleSignOut}>Sign Out</a>
+                <ul className="navbar-nav">
+                    <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/user">Photo</Link></li>
+                    <li className="nav-item">
+                        <a href="/sign-out" className="nav-link" onClick={this.handleSignOut}>Sign Out</a>
                     </li>
                 </ul>
             );
@@ -26,8 +37,13 @@ class Header extends Component {
     render() {
         return (
             <div className="App-Header">
-                <h1>Header</h1>
-                {this.renderLink()}
+                    <Navbar color="faded" light expand="md">
+                        <NavbarBrand href="/" className="mr-auto">Header</NavbarBrand>
+                        <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+                        <Collapse isOpen={!this.state.isOpen} navbar>
+                            {this.renderLink()}
+                        </Collapse>
+                    </Navbar>
 
             </div>
         );
