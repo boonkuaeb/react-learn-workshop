@@ -27,25 +27,27 @@ class SignIn extends Component {
             <div className="App-SignIn">
                 <h1>Sign In</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <p>User Name:</p>
+                    <div className="form-group">
+                        <label htmlFor="username">User Name: </label>
                         <input
+                            id="username"
+                            className="form-control"
                             type="text"
                             name="username"
                             onChange={this.handleChange}
                         />
                     </div>
-                    <div>
-                        <p>Password:</p>
+                    <div className="form-group">
+                        <label htmlFor="password">Password:</label>
                         <input
+                            id="password"
+                            className="form-control"
                             type="password"
                             name="password"
                             onChange={this.handleChange}
                         />
                     </div>
-
-                    <button type="submit">Sign In</button>
-
+                    <button type="submit" className="btn btn-primary">Sign In</button>
                 </form>
             </div>
         );

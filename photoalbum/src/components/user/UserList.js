@@ -9,7 +9,9 @@ class UserList extends Component {
             <div className="App-UserList">
                 {data && data.map(user => {
                     return (
-                        <User key={user.id} data={user}/>
+                        <ul className="list-group">
+                            <User key={user.id} data={user}/>
+                        </ul>
                     )
                 })}
             </div>

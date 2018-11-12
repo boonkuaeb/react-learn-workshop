@@ -5,9 +5,9 @@ class User extends Component {
     render() {
         const data = this.props.data;
         return (
-            <div>
+            <li className="list-group-item">
                 <Link to={`/user/${data.id}/album?username=${data.username}`}>{data.name} | {data.email}</Link>
-            </div>
+            </li>
         );
     }
 }

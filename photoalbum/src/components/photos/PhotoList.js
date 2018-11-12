@@ -6,7 +6,7 @@ class PhotoList extends Component {
     render() {
         const data = this.props.data;
         return (
-            <div className="App-UserList">
+            <div className="row">
                 {data && data.map(photo => {
                     return (
                         <Photo key={photo.id} data={photo}/>

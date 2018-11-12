@@ -9,7 +9,9 @@ class AlbumList extends Component {
             <div className="App-UserList">
                 {data && data.map(album => {
                     return (
-                        <Album key={album.id} data={album}/>
+                        <ul className="list-group">
+                            <Album key={album.id} data={album}/>
+                        </ul>
                     )
                 })}
             </div>
