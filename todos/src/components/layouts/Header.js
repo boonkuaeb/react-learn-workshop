@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler } from 'reactstrap';
 import {Link, withRouter} from 'react-router-dom';
 
 class Header extends Component {
@@ -35,9 +35,9 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="App-Header">
+            <div className="App-Header text-center">
                     <Navbar color="faded" light expand="md">
-                        <NavbarBrand href="/" className="mr-auto">Header</NavbarBrand>
+
                         <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                         <Collapse isOpen={!this.state.isOpen} navbar>
                             {this.renderLink()}

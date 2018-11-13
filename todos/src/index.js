@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import reducers from './reducers'
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootswatch/dist/yeti/bootstrap.min.css';
 
 const store = createStore(
     reducers,

@@ -1,0 +1,21 @@
+
+ul li.checked,ul li.checked:hover {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through !important;
+}
+
+ul li.highlight {
+    background: #FEE25F;
+    font-weight: normal;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+    background: #ddd;
+}
+
+
+.fa-flag{
+    cursor: pointer;
+}

@@ -2,53 +2,25 @@ import React, {Component} from 'react';
 
 class SignIn extends Component {
 
-    state = {
-        username: '',
-        password: ''
-    };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        localStorage.setItem('access-token', true);
-        this.props.history.push('/');
-    };
+    componentDidMount=()=>{
+        let text = "";
+        let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    handleChange = (e) => {
-        const value = e.target.value;
-        const name = e.target.name;
-        this.setState({
-            [name]: value
-        })
+        for (var i = 0; i < 20; i++)
+        {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        let url = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1619902299&redirect_uri=http://localhost:3000/auth&state=${text}&scope=profile`
+        console.log(url);
 
+        window.location = url;
     };
 
     render() {
         return (
             <div className="App-SignIn">
-                <h1>Sign In</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="username">User Name: </label>
-                        <input
-                            id="username"
-                            className="form-control"
-                            type="text"
-                            name="username"
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password:</label>
-                        <input
-                            id="password"
-                            className="form-control"
-                            type="password"
-                            name="password"
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-primary">Sign In</button>
-                </form>
+
             </div>
         );
     }
